@@ -14,6 +14,18 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 350px;
 }
+
+h1 {
+    margin: 0 0 20px;
+}
+.menu {
+    margin: 20px 0;
+}
+.menu a {
+    display: block;
+    margin: 10px 0;
+}
+
 h2 {
     margin: 0 0 20px;
 }
@@ -46,4 +58,191 @@ button:hover {
 }
 .create-account-link {
     margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*add_item*/
+.add-item-container {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    margin: 20px;
+}
+.add-item-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+.add-item-form input {
+    width: 93%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.add-item-form button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.add-item-form button:hover {
+    background-color: #45a049;
+}
+
+.back-button {
+    margin-top: 15px;
+}
+.back-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #337ab7;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+.back-button a:hover {
+    background-color: #286090;
+}
+
+
+/*view-items-css*/
+.view-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.view-container h2 {
+    margin: 20px 0;
+}
+.view-items-table {
+    width: 80%;
+    border-collapse: collapse;
+}
+.view-items-table th, .view-items-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+.view-items-table th {
+    background-color: #f2f2f2;
+}
+.view-items-link a {
+    text-decoration: none;
+}
+.view-items-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+}
+.view-items-menu a {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+/*index.php*/
+/* Add styling for the box-container and inventory-header */
+.inventory-header {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+    color: #007BFF;
+}
+
+.box-container {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Button and form styles */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.button-container .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-container .button:hover {
+    background-color: #0056b3;
+}
+
+.logout-button {
+    background-color: #d9534f;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c9302c;
+}
+
+/* Scanner input and button styles */
+#scanner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#scanned-barcode {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#submit-barcode {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-barcode:hover {
+    background-color: #45a049;
 }
