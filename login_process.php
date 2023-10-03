@@ -8,13 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "SELECT id, username, password FROM users WHERE username = '$username'";
     $result = $conn->query($sql);
-
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         $hashed_password = $row["password"];
-
-        echo "Hashed password from the database: " . $hashed_password . "<br>"; // Debugging
-
+    
+        // Debugging output
+        echo "Entered Username: $username<br>";
+        echo "Hashed Password from the Database: $hashed_password<br>";
+    
         if (password_verify($password, $hashed_password)) {
             $_SESSION['user_id'] = $row["id"];
             header("Location: index.php");
