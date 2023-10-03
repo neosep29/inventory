@@ -20,7 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         $hashed_password = $row["password"];
-
+    
+        // Debugging output
+        echo "Entered Username: $username<br>";
+        echo "Hashed Password from the Database: $hashed_password<br>";
+    
         if (password_verify($password, $hashed_password)) {
             $_SESSION['user_id'] = $row["id"];
             header("Location: index.php");
@@ -36,13 +40,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+
+<body class="b1">
     <div class="container">
         <h2>Login</h2>
         <form method="post" action="login.php">
@@ -59,5 +68,6 @@ $conn->close();
         ?>
         <p class="create-account-link">Don't have an account? <a href="registration.php">Create an account</a></p>
     </div>
+
 </body>
 </html>
