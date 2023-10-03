@@ -7,8 +7,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    $role = "user"; // Default role
+    if ($is_admin) {
+        $role = "admin"; // For admin users
+    }
+    
+    // Insert the user into the database with the assigned role
+    $sql = "INSERT INTO users (username, password, role) VALUES ('$username', '$hashed_password', '$role')";
 
-    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_password')";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: login.php");
