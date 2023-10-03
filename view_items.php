@@ -1,47 +1,50 @@
-<?php
-include('db_config.php');
-
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-}
-
-$sql = "SELECT * FROM items";
-$result = $conn->query($sql);
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>View Items</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    </style>
 </head>
 <body>
-    <h2>View Items</h2>
-    <table>
+    <div class="view-container">
+        <h2>View Items</h2>
+    </div>
+    <table class="view-items-table">
         <tr>
-            <th>Name</th>
+            <th>Item Name</th>
             <th>Description</th>
             <th>Quantity</th>
-            <th>Price</th>
         </tr>
         <?php
-        if ($result->num_rows > 0) {
+        include('db_config.php');
+
+        $sql = "SELECT name, description, quantity FROM items"; // Updated query
+        $result = $conn->query($sql);
+
+        if ($result !== false && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["description"] . "</td>";
                 echo "<td>" . $row["quantity"] . "</td>";
-                echo "<td>" . $row["price"] . "</td>";
                 echo "</tr>";
             }
         } else {
-            echo "No items in the inventory.";
+            echo "<tr><td colspan='3'>No items found</td></tr>";
         }
+
         $conn->close();
         ?>
     </table>
-    <a href="index.php">Back to Menu</a>
+    <div class="back-button">
+            <a href="index.php">Back to Menu</a>
+        </div>
 </body>
 </html>
