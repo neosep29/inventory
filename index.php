@@ -1,10 +1,15 @@
 <?php
+include('nav.php'); 
 include('db_config.php');
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
 }
+
+$userRole = $_SESSION['user_role'];
 
 if (isset($_POST['logout'])) {
     // Unset and destroy the session
@@ -39,6 +44,7 @@ if ($result->num_rows == 1) {
                 <?php
                 if ($userRole === 'admin') {
                     echo '<a class="button" href="add_item.php">Add Item</a>';
+                    echo '<a class="button" href="admin.php">Barcode Scan Logs</a>';
                 }
                 ?>
                 <button class="button view-items-button" onclick="location.href='view_items.php'">View Items</button>
@@ -46,33 +52,36 @@ if ($result->num_rows == 1) {
             </div>
             <div id="scanner-container">
                 <input type="text" id="scanned-barcode" placeholder="Scan barcode..." autofocus>
-                <button type="submit" id="submit-barcode">Submit</button>
+                <button type="button" id="submit-barcode">Submit</button>
             </div>
         </div>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#submit-barcode').on('click', function() {
-                console.log('Button clicked'); // Debugging message
-                var scannedBarcode = $('#scanned-barcode').val();
+    <div class="footer">
+        <p>&copy; Joseph Patron || <?php echo date("Y"); ?> Inventory System</p>
+    </div>
 
-                // Send the scanned barcode to the server for verification
-                $.ajax({
-                    type: 'POST',
-                    url: 'barcode_scanner.php',
-                    data: { scannedBarcode: scannedBarcode },
-                    success: function(response) {
-                        console.log('Server response:', response); // Debugging message
-                        if (response === 'success') {
-                            alert('Item deducted successfully.');
-                        } else {
-                            alert('Failed to deduct item.');
-                        }
+    <script>
+    $(document).ready(function() {
+        $('#submit-barcode').on('click', function() {
+            var scannedBarcode = $('#scanned-barcode').val();
+
+            // Send the scanned barcode to the server for verification
+            $.ajax({
+                type: 'POST',
+                url: 'barcode_scanner.php',
+                data: { scannedBarcode: scannedBarcode },
+                success: function(response) {
+                    if (response === 'success') {
+                        alert('Item deducted successfully.');
+                        $('#scanned-barcode').val(''); // Clear the input
+                    } else {
+                        alert('Failed to deduct item.');
                     }
-                });
+                }
             });
         });
+    });
     </script>
 </body>
 </html>
