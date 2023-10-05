@@ -1,6 +1,9 @@
 <?php 
+include('nav.php');
 include('db_config.php');
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -15,6 +18,7 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<h1 class="inventory-header">Inventory System</h1>
 <div class="add-item-container">
         <h2>Add Item</h2>
         <form class="add-item-form" method="post" action="add_item_process.php">
@@ -31,6 +35,9 @@ if (!isset($_SESSION['user_id'])) {
         <div class="back-button">
             <a href="index.php">Back to Menu</a>
         </div>
+    </div>
+    <div class="footer">
+        <p>&copy; Joseph Patron // <?php echo date("Y"); ?> Inventory System</p>
     </div>
 </body>
 </html>
