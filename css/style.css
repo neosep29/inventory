@@ -1,19 +1,23 @@
-body {
+/*login.php*/
+.b1 {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Change flex-direction to column */
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #f4f4f4;
 }
-.container {
+
+.login-container {
     text-align: center;
     background-color: #ffffff;
-    padding: 40px;
+    padding: 50px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 350px;
+    margin-top: 20px; 
 }
+
 
 h1 {
     margin: 0 0 20px;
@@ -33,6 +37,7 @@ label {
     display: block;
     margin-bottom: 5px;
 }
+
 input {
     width: 100%;
     padding: 10px;
@@ -41,6 +46,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 button {
     background-color: #007BFF;
     color: #fff;
@@ -60,22 +66,17 @@ button:hover {
     margin-top: 20px;
 }
 
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-}
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-th {
-    background-color: #f2f2f2;
+
+/*logo*/
+/* Add styles for the logo and text in the login-container */
+.login-logo {
+    max-width: 100px; /* Adjust the logo size as needed */
 }
 
-a {
-    text-decoration: none;
+.login-text {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
 }
 
 
@@ -86,7 +87,10 @@ a {
     border: 1px solid #ccc;
     background-color: #f7f7f7;
     border-radius: 5px;
-    margin: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
 .add-item-form label {
     display: block;
@@ -114,6 +118,7 @@ a {
 .back-button {
     margin-top: 15px;
 }
+
 .back-button a {
     display: inline-block;
     padding: 10px 20px;
@@ -127,48 +132,33 @@ a {
 }
 
 
-/*view-items-css*/
-.view-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.view-container h2 {
-    margin: 20px 0;
-}
-.view-items-table {
-    width: 80%;
-    border-collapse: collapse;
-}
-.view-items-table th, .view-items-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-.view-items-table th {
-    background-color: #f2f2f2;
-}
-.view-items-link a {
-    text-decoration: none;
-}
-.view-items-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 50%;
-}
-.view-items-menu a {
-    display: inline-block;
-    margin: 10px 0;
-}
-
 /*index.php*/
 /* Add styling for the box-container and inventory-header */
 .inventory-header {
-    font-size: 24px;
+    font-size: 36px;
     text-align: center;
     margin: 20px 0;
     color: #007BFF;
+    animation: blink 2s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.index-container {
+    display: block;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .box-container {
@@ -179,7 +169,6 @@ a {
     margin: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 /* Button and form styles */
@@ -245,4 +234,135 @@ a {
 
 #submit-barcode:hover {
     background-color: #45a049;
+}
+
+
+/* Add styles for the footer */
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 2px 0;
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+}
+
+/*nav bar*/
+/* Apply basic styles to the navigation bar */
+/* Apply basic styles to the navigation bar */
+nav {
+    background-color: #333; /* Background color */
+    text-align: center; /* Center-align the navigation bar horizontally */
+    overflow: hidden;
+    width: 100%; /* Set the width to 100% */
+}
+
+/* Center-align the unordered list (ul) within the navigation bar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+}
+
+/* Style the list items (li) within the unordered list */
+nav ul li {
+    margin: 0 10px; /* Adjust the horizontal spacing between list items */
+}
+
+/* Style the navigation bar links */
+nav a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underlines from links */
+}
+
+/* Change link color on hover */
+nav a:hover {
+    color: green; /* Text color on hover */
+    transition-duration: 0.4s;
+}
+
+/* Add a class to style the active link */
+nav a.active {
+    background-color: #4CAF50; /* Background color for the active link */
+}
+
+
+/*admin.php*/
+/* Add this CSS to style the withdrawal logs table */
+.admin-logs-table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+}
+
+.admin-logs-table th, .admin-logs-table td {
+border: 1px solid #ccc;
+padding: 10px;
+text-align: left;
+}
+
+.admin-logs-table th {
+background-color: #f2f2f2;
+font-weight: bold;
+}
+
+.admin-logs-table tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+.admin-logs-table tr:nth-child(odd) {
+background-color: lightblue;
+}
+
+.admin-logs-table th, .admin-logs-table td {
+min-width: 150px;
+}
+
+/*view_items.php*/
+/* Add this CSS for styling the table on the Admin Page */
+.view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0%;
+}
+
+.view-container h2 {
+    padding: 0%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0; /* Remove the top margin */
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table th, table td {
+    min-width: 150px;
+}
+
+/* Add this to allow horizontal scrolling if the content is too wide */
+body {
+    overflow-x: auto;
 }
