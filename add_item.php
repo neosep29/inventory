@@ -16,6 +16,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <title>Add Item</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <h1 class="inventory-header">Inventory System</h1>
@@ -37,7 +38,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
     <div class="footer">
-        <p>&copy; Joseph Patron // <?php echo date("Y"); ?> Inventory System</p>
+        <p>&copy; Joseph Patron || <?php echo date("Y"); ?> Inventory System</p>
     </div>
 </body>
 </html>

@@ -18,13 +18,14 @@
     margin-top: 20px; 
 }
 
-
 h1 {
     margin: 0 0 20px;
 }
+
 .menu {
     margin: 20px 0;
 }
+
 .menu a {
     display: block;
     margin: 10px 0;
@@ -33,6 +34,7 @@ h1 {
 h2 {
     margin: 0 0 20px;
 }
+
 label {
     display: block;
     margin-bottom: 5px;
@@ -55,9 +57,11 @@ button {
     padding: 10px 20px;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #0056b3;
 }
+
 .error {
     color: red;
     margin-top: 10px;
@@ -92,10 +96,12 @@ button:hover {
     margin-right: auto;
     margin-top: 10px;
 }
+
 .add-item-form label {
     display: block;
     margin-bottom: 5px;
 }
+
 .add-item-form input {
     width: 93%;
     padding: 8px;
@@ -103,6 +109,7 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
+
 .add-item-form button {
     background-color: #4CAF50;
     color: #fff;
@@ -111,6 +118,7 @@ button:hover {
     border-radius: 3px;
     cursor: pointer;
 }
+
 .add-item-form button:hover {
     background-color: #45a049;
 }
@@ -249,43 +257,35 @@ button:hover {
 }
 
 /*nav bar*/
-/* Apply basic styles to the navigation bar */
-/* Apply basic styles to the navigation bar */
 nav {
-    background-color: #333; /* Background color */
-    text-align: center; /* Center-align the navigation bar horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
     overflow: hidden;
-    width: 100%; /* Set the width to 100% */
+    height: 70px;
 }
 
-/* Center-align the unordered list (ul) within the navigation bar */
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
+.topnav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
 }
 
-/* Style the list items (li) within the unordered list */
-nav ul li {
-    margin: 0 10px; /* Adjust the horizontal spacing between list items */
+.top-nav-logo {
+    max-width: 50px; /* Adjust the logo size as needed */
 }
 
-/* Style the navigation bar links */
-nav a {
-    color: white; /* Text color */
-    text-decoration: none; /* Remove underlines from links */
-}
-
-/* Change link color on hover */
-nav a:hover {
-    color: green; /* Text color on hover */
-    transition-duration: 0.4s;
-}
-
-/* Add a class to style the active link */
-nav a.active {
-    background-color: #4CAF50; /* Background color for the active link */
+/* Style for the text */
+.center-text {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 10px; /* Add padding to separate the text from the logo */
 }
 
 
@@ -362,7 +362,87 @@ table th, table td {
     min-width: 150px;
 }
 
-/* Add this to allow horizontal scrolling if the content is too wide */
-body {
-    overflow-x: auto;
+/*side nav*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px; /* Initially off the screen */
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent background color */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
+
+.sidenav ul, li {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left: 20px;
+}
+
+.sidenav li {
+    display: flex;
+    align-items: left;
+    margin: 10px 0;
+    font-size: 24px;
+    transition: background-color 0.3s;
+}
+
+.sidenav i {
+    margin-right: 10px; /* Add some spacing between icon and text */
+}
+
+.sidenav a {
+    color: white;
+    text-decoration: none;
+    text-align: left;
+    transform: scale(1.1);
+}
+
+.sidenav a:hover {
+    color: #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+    transition: .5s;
+}
+
+#sidebar-toggle {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.hamburger-button {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 2; /* Ensure the hamburger is above the overlay */
+}
+
+/* Style for the side navigation overlay */
+#sideNavOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2; /* Place the overlay above the content */
+    transition: width 0.5s;
+}
+

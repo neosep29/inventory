@@ -35,20 +35,14 @@ if ($result->num_rows == 1) {
     <title>Inventory System</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="index-container">
         <h1 class="inventory-header">Inventory System</h1>
         <div class="box-container">
             <div class="button-container">
-                <?php
-                if ($userRole === 'admin') {
-                    echo '<a class="button" href="add_item.php">Add Item</a>';
-                    echo '<a class="button" href="admin.php">Barcode Scan Logs</a>';
-                }
-                ?>
-                <button class="button view-items-button" onclick="location.href='view_items.php'">View Items</button>
-                <button class="logout-button" onclick="location.href='logout.php'">Logout</button>
+                <h2>Please Scan your Item</h2>
             </div>
             <div id="scanner-container">
                 <input type="text" id="scanned-barcode" placeholder="Scan barcode..." autofocus>
@@ -76,7 +70,7 @@ if ($result->num_rows == 1) {
                         alert('Item deducted successfully.');
                         $('#scanned-barcode').val(''); // Clear the input
                     } else {
-                        alert('Failed to deduct item.');
+                        alert('Item not in the database');
                     }
                 }
             });

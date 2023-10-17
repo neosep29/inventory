@@ -35,18 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Withdraw Item</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <!-- Create a form to allow users to select an item to withdraw -->
     <h2>Withdraw Item</h2>
-    <form method="post" action="withdraw_item.php">
-        <!-- Populate the options dynamically from the items table -->
-        <select name="item_id">
-            <option value="1">Item 1</option>
-            <option value="2">Item 2</option>
-            <!-- Add more items as needed -->
-        </select>
-        <button type="submit">Withdraw</button>
-    </form>
+
 </body>
 </html>
